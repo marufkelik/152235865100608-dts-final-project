@@ -18,7 +18,7 @@ const [user] = useAuthState(auth);
 
       {user ? (
                   <Link
-                    to={`/detail_news/${props.news.title}`}
+                    to={`/detail_news/${props.news._id}`}
                   >
                     <Typography variant="h6">
           {props.news.title}
@@ -38,7 +38,7 @@ const [user] = useAuthState(auth);
         <CardMedia
           component="img"
           sx={{ width: '40%' }}
-          image={props.news.urlToImage}
+          image={props.news.media}
         ></CardMedia>
 
         {user ? (<CardContent
@@ -50,17 +50,17 @@ const [user] = useAuthState(auth);
           }}
         >
           <Typography component="div" variant="body1">
-            Sumber : {props.news.source.name}
+            Sumber : {props.news.rights}
           </Typography>
 
           <Typography variant="body2">
-            Publish Date : {props.news.publishedAt}
+            Publish Date : {props.news.published_date}
           </Typography>
           <Typography variant="body2">
-            Url Sumber : {props.news.url}
+            Url Sumber : {props.news.link}
           </Typography>
           <Typography variant="body2">
-            Deskripsi : {props.news.description}
+            Deskripsi : {props.news.summary}
           </Typography>
         </CardContent>) : (<CardContent
           sx={{
@@ -70,7 +70,7 @@ const [user] = useAuthState(auth);
             width: 1,
           }}
         ><Typography variant="body2">
-            Login Untuk Melihat Detail
+            Login For Infomation Detail
           </Typography></CardContent>)}
         
       </Box>
